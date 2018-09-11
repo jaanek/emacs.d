@@ -1,6 +1,6 @@
-(add-to-list 'load-path "neotree/")
-  (require 'neotree)
-  (global-set-key [f8] 'neotree-toggle)
+;; (add-to-list 'load-path "neotree/")
+;; (require 'neotree)
+;; (global-set-key [f8] 'neotree-toggle)
 
 (require-package 'go-mode)
 (require-package 'company-go)
