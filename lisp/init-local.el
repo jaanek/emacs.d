@@ -1,12 +1,19 @@
 ;;; package summary
 
+;; https://www.emacswiki.org/emacs/LineNumbers
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
+
 ;; editor keymaps
 (global-set-key (kbd "C-c C-c") 'comment-line)
-(global-set-key (kbd "C-c C-r") 'find-file-in-project)
+(global-set-key (kbd "C-c C-l") 'find-file-in-project)
 (global-set-key (kbd "C-<left>") 'backward-word)
 (global-set-key (kbd "C-<right>") 'forward-word)
 (global-set-key (kbd "C-<down>") 'end-of-defun)
 (global-set-key (kbd "C-<up>") 'beginning-of-defun)
+(global-set-key (kbd "C-<f11>") 'previous-error)
+(global-set-key (kbd "C-<f12>") 'next-error)
+(global-set-key (kbd "C-c C-i") 'indent-region)
 
 ;; toggle window split
 
