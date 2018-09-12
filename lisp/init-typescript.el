@@ -32,4 +32,4 @@
 ;; ;; enable typescript-tslint checker
 ;; (flycheck-add-mode 'typescript-tslint 'web-mode)
 
-(provide 'init-tide)
+(provide 'init-typescript)

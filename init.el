@@ -49,8 +49,6 @@
 (require-package 'scratch)
 (require-package 'command-log-mode)
 
-(require 'init-go)
-
 (require 'init-frame-hooks)
 (require 'init-xterm)
 (require 'init-themes)
@@ -91,8 +89,8 @@
 (require 'init-csv)
 ;;(require 'init-erlang)
 (require 'init-javascript)
-(require 'init-rjsx)
-(require 'init-tide)
+(require 'init-jsx)
+(require 'init-typescript)
 ;;(require 'init-php)
 (require 'init-org)
 (require 'init-nxml)
@@ -101,9 +99,9 @@
 (require 'init-haml)
 (require 'init-http)
 (require 'init-python)
-;;(require 'init-haskell)
+(require 'init-haskell)
 ;;(require 'init-elm)
-(require 'init-purescript)
+;;(require 'init-purescript)
 ;;(require 'init-ruby)
 ;;(require 'init-rails)
 (require 'init-sql)
@@ -122,6 +120,7 @@
 (require 'init-clojure-cider)
 (require 'init-common-lisp)
 (require 'init-solidity)
+(require 'init-go)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))

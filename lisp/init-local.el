@@ -13,7 +13,10 @@
 (global-set-key (kbd "C-<up>") 'beginning-of-defun)
 (global-set-key (kbd "C-<f11>") 'previous-error)
 (global-set-key (kbd "C-<f12>") 'next-error)
-(global-set-key (kbd "C-c C-i") 'indent-region)
+(global-set-key (kbd "C-c C-i") 'indent-region) ;; C-c TAB
+
+;; find file in project
+(setq ffip-use-rust-fd t)
 
 ;; toggle window split
 
