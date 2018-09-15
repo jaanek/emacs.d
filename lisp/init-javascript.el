@@ -3,6 +3,7 @@
 (maybe-require-package 'coffee-mode)
 (maybe-require-package 'typescript-mode)
 (maybe-require-package 'prettier-js)
+(maybe-require-package 'js2-refactor)
 
 (defcustom preferred-javascript-mode
   (first (remove-if-not #'fboundp '(js2-mode js-mode)))
@@ -106,5 +107,9 @@
   (after-load 'js2-mode
     (add-hook 'js2-mode-hook 'add-node-modules-path)))
 
+
+;; https://github.com/magnars/js2-refactor.el
+;; (after-load 'js2-refactor-mode
+;;   (add-hook 'js2-mode-hook #'js2-refactor-mode)
 
 (provide 'init-javascript)
