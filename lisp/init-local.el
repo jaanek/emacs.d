@@ -15,7 +15,7 @@
 (global-set-key (kbd "C-<f12>") 'next-error)
 (global-set-key (kbd "C-c C-i") 'indent-region) ;; C-c TAB
 
-;; find file in project
+;; find file in project, use rust fd command implementation
 (setq ffip-use-rust-fd t)
 
 ;; toggle window split
