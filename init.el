@@ -145,9 +145,10 @@
   (maybe-require-package 'daemons))
 (maybe-require-package 'dotenv-mode)
 
-(when (maybe-require-package 'uptimes)
-  (setq-default uptimes-keep-count 200)
-  (add-hook 'after-init-hook (lambda () (require 'uptimes))))
+;; Commeted out uptimes because got "reached end of file" error
+;;(when (maybe-require-package 'uptimes)
+;;  (setq-default uptimes-keep-count 200)
+;;  (add-hook 'after-init-hook (lambda () (require 'uptimes))))
 
 
 ;;----------------------------------------------------------------------------

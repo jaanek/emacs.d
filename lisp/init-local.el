@@ -72,4 +72,8 @@ Assumes that the frame is only split into two."
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 
+;; editorconfig
+(require 'editorconfig)
+(editorconfig-mode 1)
+
 (provide 'init-local)
