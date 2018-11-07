@@ -91,6 +91,7 @@
 (require 'init-javascript)
 (require 'init-jsx)
 (require 'init-typescript)
+(require 'init-web)
 ;;(require 'init-php)
 (require 'init-org)
 (require 'init-nxml)
