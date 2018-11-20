@@ -9,7 +9,7 @@
                   ivy-magic-tilde nil
                   ivy-dynamic-exhibit-delay-ms 150
                   ivy-initial-inputs-alist
-                  '((man . "^")
+                  '((Man-completion-table . "^")
                     (woman . "^")))
 
     ;; IDO-style directory navigation
@@ -30,7 +30,7 @@
                   '((t . ivy--regex-fuzzy)))))
 
 (when (maybe-require-package 'ivy-historian)
-  (add-hook 'after-init-hook (lambda () (ivy-historian-mode t))))
+  (add-hook 'after-init-hook 'ivy-historian-mode))
 
 (when (maybe-require-package 'counsel)
   (setq-default counsel-mode-override-describe-bindings t)
