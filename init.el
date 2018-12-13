@@ -101,6 +101,7 @@
 (require 'init-python)
 (require 'init-haskell)
 (require 'init-kotlin)
+(require 'init-dart)
 ;;(require 'init-elm)
 ;;(require 'init-purescript)
 ;;(require 'init-ruby)
