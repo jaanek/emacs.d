@@ -6,8 +6,8 @@
 
 ;; https://github.com/ethereum/emacs-solidity
 ;; Configuring solc checker
-;; (setq solidity-solc-path "solc")
-;; (setq solidity-flycheck-solc-checker-active t)
+(setq solidity-solc-path "/usr/bin/solc")
+(setq solidity-flycheck-solc-checker-active t)
 ;; (setq flycheck-solidity-solc-addstd-contracts t)
 ;; Configuring solium checker
 (setq solidity-solium-path "solium")
