@@ -64,7 +64,7 @@
 
 (when (maybe-require-package 'beacon)
   (setq-default beacon-lighter "")
-  (setq-default beacon-size 5)
+  (setq-default beacon-size 20)
   (add-hook 'after-init-hook 'beacon-mode))
 
 
@@ -88,7 +88,17 @@
 
 
 (when (fboundp 'display-line-numbers-mode)
+  (setq display-line-numbers-width 3)
   (add-hook 'prog-mode-hook 'display-line-numbers-mode))
+
+(when (maybe-require-package 'goto-line-preview)
+  (global-set-key [remap goto-line] 'goto-line-preview)
+
+  (when (fboundp 'display-line-numbers-mode)
+    (defun sanityinc/with-display-line-numbers (f &rest args)
+      (let ((display-line-numbers t))
+        (apply f args)))
+    (advice-add 'goto-line-preview :around #'sanityinc/with-display-line-numbers)))
 
 
 (when (require-package 'rainbow-delimiters)
