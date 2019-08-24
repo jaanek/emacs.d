@@ -3,10 +3,42 @@
 ;; (global-set-key [f8] 'neotree-toggle)
 
 (require-package 'go-mode)
-(require-package 'company)
-(require-package 'company-go) ;; autocomplete - https://github.com/mdempsky/gocode/tree/master/emacs-company
 
-;; go-code setup
+;; company autocomplete with gocode - https://github.com/mdempsky/gocode/tree/master/emacs-company
+;; (require-package 'company)
+;; (require-package 'company-go)
+;; (add-hook 'go-mode-hook 'company-mode)(add-hook 'go-mode-hook (lambda ()  (set (make-local-variable 'company-backends) '(company-go)) (company-mode)))
+
+;; Use gopls - Go Language Server Protocol - autocomplete, go to definition
+;; Example confiuration - https://ladicle.com/post/config/#lsp
+(require-package 'lsp-mode)
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :config
+  (setq lsp-prefer-flymake nil) ;; Prefer using lsp-ui (flycheck) over flymake.
+  )
+(add-hook 'go-mode-hook #'lsp-deferred)
+;; optional - provides fancier overlays
+(use-package lsp-ui
+  :requires lsp-mode flycheck
+  :config
+  (setq lsp-ui-doc-enable t
+        lsp-ui-doc-use-childframe t
+        lsp-ui-doc-position 'top
+        lsp-ui-doc-include-signature t
+        lsp-ui-sideline-enable nil
+        lsp-ui-flycheck-enable t
+        lsp-ui-flycheck-list-position 'right
+        lsp-ui-flycheck-live-reporting t
+        lsp-ui-peek-enable t
+        lsp-ui-peek-list-width 60
+        lsp-ui-peek-peek-height 25)
+
+  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+  )
+
+;; gocode autocomplete setup - https://github.com/stamblerre/gocode
+;; (require-package 'auto-complete)
 ;; (require 'go-autocomplete)
 ;; (require 'auto-complete-config)
 ;; (ac-config-default)
@@ -14,12 +46,12 @@
 ;;(require-package 'go-guru)
 ;;(require-package 'go-rename)
 
+;; goimports - https://godoc.org/golang.org/x/tools/cmd/goimports
+(setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
 
 ;; (add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")(require 'go-flymake)
 ;; (add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")(require 'go-flycheck)
-
-(add-hook 'go-mode-hook 'company-mode)(add-hook 'go-mode-hook (lambda ()  (set (make-local-variable 'company-backends) '(company-go)) (company-mode)))
 
 (add-hook 'go-mode-hook '(lambda ()
                            (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
@@ -35,7 +67,7 @@
 ;; https://johnsogg.github.io/emacs-golang
 (defun my-go-mode-hook ()
   ;; Key bindings specific to go-mode
-  (local-set-key (kbd "M-.") 'godef-jump) ; Go to definition
+  ;; (local-set-key (kbd "M-.") 'godef-jump) ; Go to definition
   (local-set-key (kbd "C-c C-]") 'next-error) ; Go to next error (or msg)
   (local-set-key (kbd "C-c C-[") 'previous-error) ; Go to previous error or msg
   )
