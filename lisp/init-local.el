@@ -68,6 +68,9 @@ Assumes that the frame is only split into two."
 (global-set-key (kbd "C--")
                 '(lambda () (interactive) (global-text-scale-adjust -1)))
 
+;; find-file-in-project
+(require-package 'find-file-in-project)
+
 ;; neotree
 ;; (require 'neotree)
 ;; (global-set-key [f8] 'neotree-toggle)

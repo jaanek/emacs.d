@@ -24,11 +24,11 @@
 
 (add-hook 'solidity-mode-hook 'solidity-custom-settings)
 
-(add-hook 'solidity-mode-hook
-          (lambda ()
-            (set (make-local-variable 'company-backends)
-                 (append '((company-solidity company-capf company-dabbrev-code))
-                         company-backends))))
+;; (add-hook 'solidity-mode-hook
+;;           (lambda ()
+;;             (set (make-local-variable 'company-backends)
+;;                  (append '((company-solidity company-capf company-dabbrev-code))
+;;                          company-backends))))
 
 (provide 'init-solidity)
 

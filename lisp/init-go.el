@@ -15,10 +15,14 @@
 (use-package lsp-mode
   :commands (lsp lsp-deferred)
   :config
-  (setq lsp-prefer-flymake nil) ;; Prefer using lsp-ui (flycheck) over flymake.
+  (setq lsp-prefer-flymake nil ;; Prefer using lsp-ui (flycheck) over flymake.
+        lsp-enable-snippet nil ;; if you are using completion-at-point the snippets won’t be expanded and you should either disable them by setting lsp-enable-snippet to nil or you should switch to company-lsp
+        )
   )
 (add-hook 'go-mode-hook #'lsp-deferred)
+
 ;; optional - provides fancier overlays
+(require-package 'lsp-ui)
 (use-package lsp-ui
   :requires lsp-mode flycheck
   :config

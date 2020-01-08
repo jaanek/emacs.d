@@ -20,6 +20,18 @@
       (after-load 'python
         (push 'company-anaconda company-backends)))))
 
+;; conda mode
+(require 'conda)
+(custom-set-variables
+ '(conda-anaconda-home "/opt/miniconda3"))
+
+;; conda mode
+;;(use-package conda
+;;  :ensure t
+;;  :init
+;;  (setq conda-anaconda-home (expand-file-name "/opt/miniconda3"))
+;;  (setq conda-env-home-directory (expand-file-name "/opt/miniconda3"))
+;;  )
 
 (provide 'init-python)
 ;;; init-python.el ends here
