@@ -45,5 +45,8 @@
 ;;  (setq conda-env-home-directory (expand-file-name "/opt/miniconda3"))
 ;;  )
 
+(when (maybe-require-package 'toml-mode)
+  (add-to-list 'auto-mode-alist '("poetry\\.lock\\'" . toml-mode)))
+
 (provide 'init-python)
 ;;; init-python.el ends here
