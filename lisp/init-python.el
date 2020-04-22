@@ -48,5 +48,8 @@
 (when (maybe-require-package 'toml-mode)
   (add-to-list 'auto-mode-alist '("poetry\\.lock\\'" . toml-mode)))
 
+(when (maybe-require-package 'reformatter)
+  (reformatter-define black :program "black"))
+
 (provide 'init-python)
 ;;; init-python.el ends here
