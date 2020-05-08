@@ -141,7 +141,8 @@
 (require 'init-ledger)
 ;; Extra packages which don't require any configuration
 
-;;(require-package 'gnuplot)
+(require-package 'sudo-edit)
+(require-package 'gnuplot)
 (require-package 'lua-mode)
 (require-package 'htmlize)
 (when *is-a-mac*
@@ -149,6 +150,7 @@
 (unless (eq system-type 'windows-nt)
   (maybe-require-package 'daemons))
 (maybe-require-package 'dotenv-mode)
+(maybe-require-package 'shfmt)
 
 ;; Commeted out uptimes because got "reached end of file" error
 ;;(when (maybe-require-package 'uptimes)
