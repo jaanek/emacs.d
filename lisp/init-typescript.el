@@ -5,6 +5,11 @@
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
+  ;; use 2 space indentation
+  (setq typescript-indent-level 2)
+  ;; see https://github.com/Microsoft/TypeScript/blob/cc58e2d7eb144f0b2ff89e6a6685fb4deaa24fde/src/server/protocol.d.ts#L421-473 for the full list available options
+  ;; https://github.com/ananthakumaran/tide/issues/164
+  (setq tide-format-options '(:indentSize 2 :tabSize 2 :convertTabsToSpaces t :insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces :json-false))
   (flycheck-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
