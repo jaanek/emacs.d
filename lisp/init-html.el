@@ -6,8 +6,7 @@
 ;;; Code:
 
 (require-package 'tagedit)
-(after-load 'sgml-mode
-  ;; https://github.com/magnars/tagedit
+(with-eval-after-load 'sgml-mode
   (tagedit-add-paredit-like-keybindings)
   (define-key tagedit-mode-map (kbd "M-?") nil)
   (define-key tagedit-mode-map (kbd "C-<right>") nil)
