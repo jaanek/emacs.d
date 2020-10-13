@@ -25,7 +25,8 @@
 (use-package lsp-mode
   :requires hydra helm helm-lsp
   :commands (lsp lsp-deferred)
-  :hook ((lsp-completion-mode           ; enable lsp completion
+  :hook ((
+          ;; lsp-completion-mode           ; enable lsp completion
           c-mode                        ; clangd
           c-or-c++-mode                 ; clangd
           java-mode                     ; eclipse-jdtls
@@ -47,10 +48,11 @@
   (setq lsp-signature-auto-activate nil)
   (setq lsp-enable-folding nil)
   ;; (setq lsp-enable-snippet nil) ;; if you are using completion-at-point the snippets won’t be expanded and you should either disable them by setting lsp-enable-snippet to nil or you should switch to company-lsp
-  (setq lsp-enable-completion-at-point nil)
+  ;; (setq lsp-enable-completion-at-point nil)
   (setq read-process-output-max (* 1024 1024)) ;; 1mb
   (setq lsp-idle-delay 0.5)
   (setq lsp-prefer-capf t)
+  ;; (setq lsp-log-io  t)
   (add-to-list 'lsp-language-id-configuration '(js-jsx-mode . "javascriptreact"))
   ;; (setq lsp-completion-styles '(helm-flex))
   (setq netrom--general-lsp-hydra-heads
@@ -134,14 +136,22 @@
 (defun my-ts-mode-hook ()
   (setq-default typescript-indent-level 2)
   (add-hook 'before-save-hook (function lsp-format-buffer) t t)
-  ;; (add-hook 'before-save-hook (function lsp-organize-imports) t t)
+  (add-hook 'before-save-hook (function lsp-organize-imports) t t)
   )
 (add-hook 'typescript-mode-hook 'my-ts-mode-hook)
 
+;; angular
+(setq lsp-clients-angular-language-server-command
+      '("node"
+        "/home/jaanek/.nvm/versions/node/v12.18.3/lib/node_modules/@angular/language-server"
+        "--ngProbeLocations"
+        "/home/jaanek/.nvm/versions/node/v12.18.3/lib/node_modules"
+        "--tsProbeLocations"
+        "/home/jaanek/.nvm/versions/node/v12.18.3/lib/node_modules"
+        "--stdio"))
 
 ;; https://emacs-lsp.github.io/lsp-ui/
 ;;(define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
 ;;(define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
-
 
 (provide 'init-lsp)
